@@ -1,19 +1,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  assignment-server
+  assignment-backend
 
-  Sample SAM Template for assignment-server
+  Sample SAM Template for assignment declaration backend
 
 Globals:
   Function:
     Timeout: 60
-  Api:
-    Cors:
-      AllowMethods: "'GET,POST,OPTIONS'"
-      AllowHeaders: "'content-type'"
-      AllowOrigin: "'*'"
-      AllowCredentials: "'*'"
 
 Resources:
   EfsLambdaVpc:
@@ -141,6 +135,9 @@ Resources:
         
 
 Outputs:
-  HelloEfsApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello EFS function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  SubmitFormApi:
+    Description: "API Gateway endpoint URL for Prod stage for form submission"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/api/form/submit"
+  ListData:
+    Description: "API Gateway endpoint URL for Prod stage for data listing"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/api/list"

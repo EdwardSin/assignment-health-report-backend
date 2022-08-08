@@ -6,9 +6,10 @@ from mongo_client import get_db_client
 client = get_db_client()
 db = client.form_db
 
-
 def list_data(event, context):
     body = event.get('queryStringParameters', {})
+    if not body:
+        body = {}
     keyword = body.get('keyword', '')
     limit = body.get('limit', 50)
     skip = body.get('skip', 0)
@@ -24,7 +25,7 @@ def list_data(event, context):
         })
         query['$or'] = or_query
     items = list(db.declaration.find(query).limit(int(limit)).skip(int(skip)).sort(list(sort.items())))
-    total = db.declaration.find(query).count()
+    total = db.declaration.count_documents(query)
     result = []
     for item in items:
         result.append({
