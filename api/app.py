@@ -48,6 +48,8 @@ def list_data(event, context):
 
 def submit_form(event, context):
     request_body = event.get('body')
+    if not request_body:
+        request_body = '{}'
     body = json.loads(request_body)
     name = body.get('name', None)
     temperature = body.get('temperature', None)
@@ -81,7 +83,7 @@ def submit_form(event, context):
             })
         }
 
-    if int(temperature) < 30 or int(temperature) > 45:
+    if float(temperature) < 30 or float(temperature) > 45:
         return {
             "statusCode": 401,
             "body": json.dumps({
