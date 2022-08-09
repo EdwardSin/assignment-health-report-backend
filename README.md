@@ -2,7 +2,7 @@
 
 ## Description:
 This is the backend of the assignment of Health Covid Covid-19 declaration form.
-Kindly refer to assignment-frontend for the Design Ideas.
+Kindly refer to [assignment-frontend](https://github.com/EdwardSin/assignment-health-report-frontend) for the Design Ideas.
 
 ## Development:
 To run locally:
