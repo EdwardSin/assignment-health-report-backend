@@ -1,0 +1,8 @@
+{
+    "_id": "ObjectID()",
+    "name": "String",
+    "temperature": 35,
+    "hasSymptoms": true,
+    "hasContactInLast14Days": true,
+    "createdAt": "Date"
+}

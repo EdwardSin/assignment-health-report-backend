@@ -111,7 +111,7 @@ def submit_form(event, context):
         }
     db.declaration.insert({
         "name": name,
-        "temperature": temperature,
+        "temperature": float(temperature),
         "hasSymptoms": has_symptoms,
         "hasContactInLast14Days": has_contact_in_last_14_days,
         "createdAt": datetime.now(pytz.utc)
